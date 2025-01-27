@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mon Portfolio</title>
+    <link rel="shortcut icon" href="../images/logos/logo_32x32.png" />
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .main-page{
+            height: 400px;
+            width: 85%;
+            float: right;
+        }
+        .index_image-1{
+            display: block;
+            margin: 40px auto;
+            width: 80%;
+            border-radius: 5px;
+            border-top-right-radius: 40px;
+        }
+        .index_navbar-1{
+            height: 400px; width: 15%;
+            background-color: #8d99ae;
+            float: left;
+        }
+        .index_titles{
+            margin: 10px 30px; padding: 2px 10px;
+            font-size: 40px;
+            background-color: #8d99ae;
+            color: #2b2d42;
+            font-weight: 700;
+        }
+        .index_titles::selection{
+            background-color: #1c3755;
+        }
+        .index_paragraph{
+            margin: 0 30px;
+            font-size: 25px;
+        }
+        .text-box{
+            border: 1px solid #2b2d42;
+            margin: 15px 40px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .text-box .hidden-content{
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, opacity 0.3s ease;
+        }
+        .text-box.expanded .hidden-content{max-height: 500px; /* Adjust based on your content */}
+        .text-box .toggle-icon{
+            float: right;
+            transition: transform 0.3s ease;
+        }
+        .text-box.expanded .toggle-icon{
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <section class="header_navbar-container">
+            <a href="index.html">
+                <img src="../images/logos/logo_64x64.jpg" class="header_navbar-image header_navbar-items">
+            </a>
+            <p class="header_navbar-title">Bienvenue sur mon Portfolio</p>
+            <a href="error.html" class="header_navbar-items">A propos</a>
+            <a href="#projets" class="header_navbar-items">Projets</a>
+            <a href="error.html" class="header_navbar-items">Contact</a>
+            <a href="../../../Travail/CV & lettre de motivation/mon CV.pdf" class="header_navbar-items">Documents</a>
+        </section>
+        <nav class="header_searchbar-container">
+            <input type="searchbar" class="header_searchbar" placeholder="rechercher">
+            <img src="../images/logos/search_icon.png" alt="loupe recherche" class="header_searchbar-logo">
+        </nav>
+    </header>
+    <nav class="index_navbar-1">
+        <img src="../images/face.jpg" class="index_image-1">
+        <p>Lucka Charles</p>
+    </nav>
+    <section class="main-page">
+        <article class="text-box" onclick="toggleContent(this)">
+            <p class="index_titles">
+                À propos de moi
+                <span class="toggle-icon">▼</span>
+            </p>
+            <p class="index_paragraph hidden-content">Je suis un développeur passionné par la création de sites web modernes.</p>
+        </article>
+        <article class="text-box" onclick="toggleContent(this)">
+            <p class="index_titles">
+                Compétences
+                <span class="toggle-icon">▼</span>
+            </p>
+        </article>
+        <article class="text-box" onclick="toggleContent(this)">
+            <p id="projets" class="index_titles">
+                Projets
+                <span class="toggle-icon">▼</span>
+            </p>
+        </article>
+    </section>
+    <footer>
+        <nav class="footer-line_1">
+            <a href="error.html"><p class="footer_p">Annexes</p></a>
+        </nav>
+        <nav class="footer-line_2">
+            <a href="error.html"><p class="footer_p">Mise à jour le 23 janvier &#9426; Mon Portfolio</p></a>
+        </nav>
+        <nav class="footer-line_3">
+            <a href="error.html"><p class="footer_p">Aide</p></a>
+        </nav>
+    </footer>
+    <script>
+        function toggleContent(element) {
+            // Close any other open boxes
+            document.querySelectorAll('.text-box').forEach(box => {
+                if (box !== element) {
+                    box.classList.remove('expanded');
+                }
+            });
+
+            // Toggle the clicked box
+            element.classList.toggle('expanded');
+        }
+    </script>
+</body>
+</html>
